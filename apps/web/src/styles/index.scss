@@ -1,0 +1,78 @@
+@import "./components/Button/index"; 
+@import "./components/Input/index"; 
+@import "./components/form/index"; 
+@import "./components/CheckStatus/index"; 
+@import "./pages/sign/index"; 
+@import "./pages/shop/index"; 
+@import "./components/Marketplace/index"; 
+@import "./components/Filter/index";
+@import "./components/Search/index";
+@import "./components/NavbarFilter/index";
+@import "./components/Card/index";
+@import "./components/Pagination/index";
+@import "./components/Header/index";
+@import "./pages/cart/index";
+@import "./components/ErrorInfoCard/index";
+@import "./pages/collections/index";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #000;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 36px;
+
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+h5 {
+  color:#767676;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+h6 {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+label {
+  display: inline-block;
+  cursor:pointer;
+}
+
+input {
+  &:focus-visible {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #A3A3A3;
+    font-weight: 400;
+    font-size: 16px;
+    line-height:24px;
+  }
+}
+

@@ -1,0 +1,126 @@
+.header {
+&__top-bar {
+	position: relative;
+	display: flex;
+  gap: 32px;
+  align-items: center;
+  height: 40px;
+
+  &_item {
+color: #A3A3A3;
+
+&:hover {
+  color: #000;
+}
+}
+
+&_item__active {
+   display: flex;
+gap: 12px;
+align-items: center;
+justify-content: center;
+height: 40px;
+padding: 2px 20px; 
+color: #000;
+background-color: #ECECEE;
+border-radius: 20px;
+}
+
+  &_tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    color: #A3A3A3;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+
+    &:hover {
+      color: #201F22;
+    }
+  } 
+
+  &_text {
+    margin: 0 20px;
+    font-weight: 500;
+  }
+}
+
+  &__shop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 35px;
+
+    &_logo {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #000;  
+    } 
+
+    &_controllers {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+
+      &__item {
+        position: relative;
+        color: #767676;
+        cursor: pointer;
+
+        &_active {
+          svg {
+            color: #2B77EB;
+          }
+        }
+
+        &:hover {
+          color:#2B77EB; 
+        }
+
+        &__cart {
+          display: flex;
+          align-items: center;
+
+          &_active {
+            color: #2B77EB;
+          }
+
+          &_notification {
+            position: absolute;
+            top: -12px;
+            right: -17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 25px;
+            height: 25px;
+            margin-left: 0.75rem;
+            font-weight: 600;
+            background-color: transparent;
+            border-radius: 50%;
+            transition: 0.15s ease-in;
+            
+            &_active {
+              color: #fff;
+              background-color: #2B77EB;
+            }
+          }
+
+          &__logo {
+            width: auto;
+            margin-right: 10px;
+          }
+
+          &:hover > &_notification {
+            color: #fff;
+            background-color: #2B77EB;
+          }
+        }
+      }
+    }
+  }
+}
+

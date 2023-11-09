@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-rational-order"
+  ],
+  "plugins": [
+    "stylelint-selector-bem-pattern",
+    "stylelint-order"
+  ],
+  "rules": {
+    "order/properties-order": [],
+    "plugin/rational-order": [true, {
+      "border-in-box-model": false,
+      "empty-line-between-groups": false
+    }],
+    "plugin/selector-bem-pattern": {
+      "componentName": "[AZ] +",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:-[az]+)?$",
+        "combined": "^\\.combined-{componentName}-[az ]+$"
+      },
+      "utilitySelectors": "^\\.util-[az]+$"
+    }
+  }
+}

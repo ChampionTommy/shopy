@@ -1,0 +1,17 @@
+.shop {
+    width: 1440px;
+    margin: 32px 48px;
+
+    &__app {
+      display: flex;
+      justify-content: center;
+      background-color: #FCFCFC;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+

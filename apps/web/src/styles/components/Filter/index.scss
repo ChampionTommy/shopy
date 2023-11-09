@@ -1,0 +1,61 @@
+.filter {
+  height: 139px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ECECEE;
+  border-radius: 12px;
+
+  &_btn__reset {
+    display: flex;
+    align-items: center;
+    color: #A3A3A3;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+
+    svg {
+      margin-left: 4px;
+      }
+    }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__body {
+    margin-top: 32px;
+  }
+
+  &__controllers {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+
+    &_item {
+      width: 105px;
+      padding: 8px 12px;
+    }
+  }
+
+.price {
+  color: #A3A3A3;
+
+  &__item {
+    width: 61px;
+    font-size: 16px;
+    border: none;
+  }
+
+  &__label {
+    margin-right: 5px;
+  }
+
+&:-webkit-outer-spin-button,
+&:-webkit-inner-spin-button {
+    appearance: none;
+}
+}
+
+}

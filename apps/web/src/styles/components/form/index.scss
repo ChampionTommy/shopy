@@ -1,0 +1,19 @@
+.form {
+  &__header {
+    margin-bottom: 32px;
+  }
+
+  &__input {
+    height: 40px;
+    margin-top: 8px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+
+    span {
+      margin-right: 12px;
+    }
+  }
+}
