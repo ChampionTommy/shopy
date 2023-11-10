@@ -1,6 +1,8 @@
-"use client";
-import { Icon16SearchOutline } from "@vkontakte/icons";
-export const Search = () => {
+'use client';
+
+import { Icon16SearchOutline } from '@vkontakte/icons';
+
+export function Search() {
   return (
     <div className="search input__default">
       <Icon16SearchOutline color="#A3A3A3" />
@@ -11,4 +13,4 @@ export const Search = () => {
       />
     </div>
   );
-};
+}

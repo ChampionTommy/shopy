@@ -1,12 +1,14 @@
-"use client";
-import { Filter, NavbarFilter, Pagination, Search, Card } from "components";
+'use client';
+
+import { Filter, NavbarFilter, Pagination, Search, Card } from 'components';
+
 const ItemList = [
-  { name: "DJI Air 3", price: "1549" },
-  { name: "DJI Air 3", price: "1549" },
-  { name: "DJI Air 3", price: "1549" },
-  { name: "DJI Air 3", price: "1549" },
-  { name: "DJI Air 3", price: "1549" },
-  { name: "DJI Air 3", price: "1549" },
+  { name: 'DJI Air 3', price: '1549' },
+  { name: 'DJI Air 3', price: '1549' },
+  { name: 'DJI Air 3', price: '1549' },
+  { name: 'DJI Air 3', price: '1549' },
+  { name: 'DJI Air 3', price: '1549' },
+  { name: 'DJI Air 3', price: '1549' },
 ];
 export default function Shop() {
   return (
@@ -16,9 +18,7 @@ export default function Shop() {
         <Search />
         <NavbarFilter />
         <div className="marketplace__items">
-          {ItemList.map((obj, i) => {
-            return <Card key={i} {...obj} />;
-          })}
+          {ItemList.map((obj) => <Card key={obj} title={obj.name} price={obj.price} />)}
         </div>
         <Pagination />
       </div>

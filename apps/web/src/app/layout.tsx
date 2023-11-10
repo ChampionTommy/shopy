@@ -1,8 +1,8 @@
-import "../styles/index.scss";
-import { Inter } from "next/font/google";
-import { ReduxLayout } from "redux/ReduxLayout";
+import '../styles/index.scss';
+import { Inter } from 'next/font/google';
+import { ReduxLayout } from 'redux/ReduxLayout';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 export default function RootLayout(
   { children }: { children: React.ReactNode },
 ) {

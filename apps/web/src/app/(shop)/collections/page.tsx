@@ -1,7 +1,9 @@
-"use client";
-import { Icon20AddCircle, Icon24DeleteOutline } from "@vkontakte/icons";
-import Image from "next/image";
-import { ShopyItem } from "public/images";
+'use client';
+
+import { Icon20AddCircle, Icon24DeleteOutline } from '@vkontakte/icons';
+import Image from 'next/image';
+import { ShopyItem } from 'public/images';
+
 export default function Collections() {
   return (
     <div className="collections">

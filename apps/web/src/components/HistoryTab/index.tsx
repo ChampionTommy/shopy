@@ -1,7 +1,9 @@
-"use client";
-import Image from "next/image";
-import { ShopyItem } from "public/images";
-export const HistoryTab = () => {
+'use client';
+
+import Image from 'next/image';
+import { ShopyItem } from 'public/images';
+
+export function HistoryTab() {
   return (
     <div className="cart__table">
       <table>
@@ -31,11 +33,11 @@ export const HistoryTab = () => {
             <td className="cart__table_price">$499</td>
 
             <td className="cart__table_date">
-             16.10.99
+              16.10.99
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   );
-};
+}

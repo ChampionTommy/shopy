@@ -1,6 +1,8 @@
-"use client";
-import { Icon12ChevronLeft, Icon12ChevronRight } from "@vkontakte/icons";
-export const Pagination = () => {
+'use client';
+
+import { Icon12ChevronLeft, Icon12ChevronRight } from '@vkontakte/icons';
+
+export function Pagination() {
   return (
     <div className="pagination">
       <div className="pagination__item pagination__chevron pagination__arrowLeft pagination__disable">
@@ -14,4 +16,4 @@ export const Pagination = () => {
       </div>
     </div>
   );
-};
+}

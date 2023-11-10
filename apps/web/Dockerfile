@@ -1,7 +1,7 @@
 # BUILDER - Stage 1
 FROM node:18-alpine AS builder
 WORKDIR /app
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+
 RUN apk update && apk add --no-cache libc6-compat
 RUN npm install --global --no-update-notifier --no-fund turbo@1.10.3
 COPY . .
@@ -10,7 +10,7 @@ RUN turbo prune --scope=web --docker
 # INSTALLER - Stage 2
 FROM node:18-alpine AS installer
 WORKDIR /app
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+
 RUN apk update && apk add --no-cache libc6-compat
 RUN npm install --global --no-update-notifier --no-fund pnpm@^8.0.0
 
@@ -48,8 +48,6 @@ USER nextjs
 COPY --from=app_builder /app/apps/web/next.config.js .
 COPY --from=app_builder /app/apps/web/package.json .
 
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=app_builder --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
 COPY --from=app_builder --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
 COPY --from=app_builder --chown=nextjs:nodejs /app/apps/web/public ./apps/web/public

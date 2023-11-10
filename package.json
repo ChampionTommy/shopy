@@ -1,5 +1,5 @@
 {
-  "name": "ship",
+  "name": "ship-championtommy",
   "scripts": {
     "infra": "bash ./bin/start.sh mongo redis mongo-replicator",
     "turbo-start": "turbo run development --filter=\"./apps/*\" --filter=\"./packages/*\" --filter=\"!react-email-client\" ",

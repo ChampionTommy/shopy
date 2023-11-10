@@ -1,14 +1,15 @@
-"use client";
-import Image from "next/image";
-import { ShopyLogo } from "public/images";
+'use client';
+
+import Image from 'next/image';
+import { ShopyLogo } from 'public/images';
 import {
   Icon24DoorArrowRightOutline,
   Icon28ShoppingCartOutline,
-} from "@vkontakte/icons";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+} from '@vkontakte/icons';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
-export const Header = () => {
+export function Header() {
   const router = usePathname();
   return (
     <div className="header__shop">
@@ -26,7 +27,7 @@ export const Header = () => {
         <Link
           href="/"
           className={`header__top-bar_item ${
-            router === "/" ? "header__top-bar_item__active" : ""
+            router === '/' ? 'header__top-bar_item__active' : ''
           }`}
         >
           <div className="header__top-bar_text">Marketplace</div>
@@ -34,7 +35,7 @@ export const Header = () => {
         <Link
           href="/collections"
           className={`header__top-bar_item ${
-            router === "/collections" ? "header__top-bar_item__active" : ""
+            router === '/collections' ? 'header__top-bar_item__active' : ''
           }`}
         >
           <div className="header__top-bar_text">
@@ -46,17 +47,17 @@ export const Header = () => {
         <Link
           href="/cart"
           className={`header__shop_controllers__item  ${
-            router === "/cart"
-              ? "header__shop_controllers__item_active"
-              : ""
+            router === '/cart'
+              ? 'header__shop_controllers__item_active'
+              : ''
           }`}
         >
           <Icon28ShoppingCartOutline width={34} height={34} />
           <span
             className={`header__shop_controllers__item__cart_notification   ${
-              router === "/cart"
-                ? "header__shop_controllers__item__cart_notification_active"
-                : ""
+              router === '/cart'
+                ? 'header__shop_controllers__item__cart_notification_active'
+                : ''
             }`}
           >
             3
@@ -71,4 +72,4 @@ export const Header = () => {
       </div>
     </div>
   );
-};
+}

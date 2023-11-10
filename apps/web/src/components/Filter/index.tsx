@@ -1,54 +1,28 @@
-"use client";
-import { useState } from "react";
-import { Icon12CancelOutline } from "@vkontakte/icons";
-export const Filter = () => {
-  const [isActive, setIsActive] = useState(false);
-  const [inputValue, setInputValue] = useState("");
-  const handleFocus = () => {
-    setIsActive(true);
-  };
-  const handleBlur = () => {
-    setIsActive(false);
-  };
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    const sanitizedValue = value.replace(/\$/g, "");
-    setInputValue(sanitizedValue);
+'use client';
 
-    if (sanitizedValue.length > 0) {
-      setIsActive(true);
-    }
-  };
+import { Icon12CancelOutline } from '@vkontakte/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetFilter, setFrom, setTo } from 'redux/slice/Filter';
+import { AppDispatch, RootState } from 'redux/store';
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Backspace") {
-      e.preventDefault();
-
-      const updatedValue = inputValue.slice(0, -1);
-      const sanitizedValue = updatedValue.replace(/\$/g, "");
-      setInputValue(sanitizedValue);
-
-      if (sanitizedValue.length > 0) {
-        setIsActive(true);
-      } else {
-        setIsActive(false);
-      }
-    }
-  };
-
-  const formattedValue = isActive
-    ? `${inputValue}$`
-    : inputValue && inputValue != null
-    ? `${inputValue}$`
-    : "";
-
+export function Filter() {
+  const dispatch = useDispatch<AppDispatch>();
+  const values = useSelector((state: RootState) => state.filter);
+  const handleFromChange = (value: string) => dispatch(setFrom(value));
+  const handleToChange = (value: string) => dispatch(setTo(value));
+  const handleReset = () => dispatch(resetFilter());
   return (
     <div className="filter">
       <div className="filter__header">
         <h1>Filters</h1>
-        <span className="filter_btn__reset">
-          Reset All<Icon12CancelOutline />
-        </span>
+        {values.isEmpty === false
+          ? (
+            <span className="filter_btn__reset" onClick={handleReset} role="button" tabIndex={0}>
+              Reset All
+              <Icon12CancelOutline />
+            </span>
+          )
+          : null}
       </div>
       <div className="filter__body">
         <div className="filter__item">
@@ -64,11 +38,8 @@ export const Filter = () => {
                 className="price__item"
                 type="text"
                 placeholder="100$"
-                value={formattedValue}
-                onChange={handleInputChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                onKeyDown={handleKeyDown}
+                value={values.from || ''}
+                onChange={(e) => handleFromChange(e.target.value)}
               />
             </div>
             <div className="input__default filter__controllers_item price">
@@ -81,11 +52,8 @@ export const Filter = () => {
                 className="price__item"
                 type="text"
                 placeholder="1000$"
-                value={formattedValue}
-                onChange={handleInputChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                onKeyDown={handleKeyDown}
+                value={values.to || ''}
+                onChange={(e) => handleToChange(e.target.value)}
               />
             </div>
           </div>
@@ -93,4 +61,4 @@ export const Filter = () => {
       </div>
     </div>
   );
-};
+}

@@ -2,7 +2,7 @@
   "name": "mailer",
   "version": "0.0.1",
   "description": "Mailer based on React Email",
-  "author": "Paralect",
+  "author": "ChampionTommy",
   "license": "MIT",
   "main": "./src/index.tsx",
   "types": "./src/index.tsx",

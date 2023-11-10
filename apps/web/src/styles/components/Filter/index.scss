@@ -1,10 +1,13 @@
 .filter {
-  height: 139px;
+  height: 138px;
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ECECEE;
   border-radius: 12px;
-
+  &_btn_apply {
+    width: 100%;
+    margin-top: 16px;
+  }
   &_btn__reset {
     display: flex;
     align-items: center;

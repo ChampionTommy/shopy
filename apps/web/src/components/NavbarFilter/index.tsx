@@ -1,7 +1,7 @@
+import { Poppup } from 'components/Poppup';
+import { Icon16CancelCircle } from '@vkontakte/icons';
 
-import { Poppup } from "components";
-import { Icon16CancelCircle } from "@vkontakte/icons";
-export const NavbarFilter = () => {
+export function NavbarFilter() {
   return (
     <div className="navbar">
       <div className="navbar__poppup">
@@ -14,4 +14,4 @@ export const NavbarFilter = () => {
       </div>
     </div>
   );
-};
+}

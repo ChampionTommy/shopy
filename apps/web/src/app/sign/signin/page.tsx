@@ -1,15 +1,17 @@
-"use client";
-import Image from "next/image";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Icon16View, Icon16ViewOutline } from "@vkontakte/icons";
-import { CheckStatus } from "components";
+'use client';
+
+import Image from 'next/image';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Icon16View, Icon16ViewOutline } from '@vkontakte/icons';
+import { CheckStatus } from 'components';
+import Link from 'next/link';
 
 export default function Signin() {
   const [passwordShown, setPasswordShown] = useState(false);
-  const togglePassword = () => setPasswordShown(!passwordShown);
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  const togglePassword = () => setPasswordShown(!passwordShown);
+  const onSubmit = (data: any) => data;
 
   return (
     <div className="sign sign__wrapper">
@@ -25,12 +27,12 @@ export default function Signin() {
                 className="form__input input__default"
                 type="text"
                 placeholder="Email address"
-                {...register("email", {
-                  required: "Email is required",
+                tabIndex={0}
+                {...register('email', {
+                  required: 'Email is required',
                   validate: {
-                    matchPattern: (v) =>
-                      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-                      "Email address must be a valid address",
+                    matchPattern: (v) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v)
+                      || 'Email address must be a valid address',
                   },
                 })}
               />
@@ -39,29 +41,32 @@ export default function Signin() {
               <label htmlFor="password">Password</label>
               <input
                 className="form__input input__default"
-                type={passwordShown ? "text" : "password"}
+                type={passwordShown ? 'text' : 'password'}
                 placeholder="Enter password"
-                {...register("password", {
-                  required: "Password is required",
+                tabIndex={0}
+                {...register('password', {
+                  required: 'Password is required',
                   maxLength: {
                     value: 255,
-                    message: "Password exceeds maximum length",
+                    message: 'Password exceeds maximum length',
                   },
                   minLength: {
                     value: 8,
-                    message: "Password must be at least 8 characters",
+                    message: 'Password must be at least 8 characters',
                   },
                   pattern: {
                     value:
                       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i,
                     message:
-                      "Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character",
+                      'Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character',
                   },
                 })}
               />
               <span
                 className="input__block_password--icon"
                 onClick={togglePassword}
+                role="button"
+                tabIndex={0}
               >
                 {passwordShown
                   ? <Icon16View color="#2B77EB" width={17} />
@@ -69,28 +74,30 @@ export default function Signin() {
               </span>
             </div>
             {errors.password && (
-              <>
-                {errors.password.type === "required" && (
+              <div role="presentation">
+                {errors.password.type === 'required' && (
                   <CheckStatus title={errors.password?.message} />
                 )}
-                {errors.password.type === "maxLength" && (
+                {errors.password.type === 'maxLength' && (
                   <CheckStatus title={errors.password?.message} />
                 )}
-                {errors.password.type === "minLength" && (
+                {errors.password.type === 'minLength' && (
                   <CheckStatus title={errors.password?.message} />
                 )}
-                {errors.password.type === "pattern" && (
+                {errors.password.type === 'pattern' && (
                   <CheckStatus title={errors.password?.message} />
                 )}
-              </>
+              </div>
             )}
-            <button className="button button__default" type="submit">Create Account</button>
+            <button className="button button__default" type="submit">
+              Create Account
+            </button>
           </form>
           <div className="form__footer">
             <span>Don't have an account?</span>
-            <a href="/signup">
+            <Link href="/signup">
               <span>Sign Up</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -100,7 +107,7 @@ export default function Signin() {
           alt="shopy_preview"
           width={590}
           height={890}
-          priority={true}
+          priority
         />
       </div>
     </div>
