@@ -18,7 +18,7 @@ export default function Shop() {
         <Search />
         <NavbarFilter />
         <div className="marketplace__items">
-          {ItemList.map((obj) => <Card key={obj} title={obj.name} price={obj.price} />)}
+          {ItemList.map((obj) => <Card key={obj.name} title={obj.name} price={obj.price} />)}
         </div>
         <Pagination />
       </div>
