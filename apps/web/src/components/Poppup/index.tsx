@@ -1,11 +1,7 @@
 'use client';
 
-import { MouseEventHandler, useState } from 'react';
+import { useState } from 'react';
 import { Icon20SortOutline, Icon24ChevronDown } from '@vkontakte/icons';
-
-type SortItem = {
-  name: string;
-};
 
 const sortList = [
   { name: 'Sort by newest' },

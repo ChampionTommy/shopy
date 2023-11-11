@@ -1,12 +1,12 @@
 .card {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     width: 318px;
     overflow: hidden;
     background: #FFF;
     border: 1px solid #ECECEE;
     border-radius: 12px;
+    justify-content: space-between;
 
     &__button {
       width: 100%;
@@ -24,18 +24,18 @@
     }
 
     &__body {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin: 16px;
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+    flex: 1;
+    justify-content: space-between;
 
       &_price {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 14px;
-        margin-bottom: 22px;
+display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    margin-bottom: 22px;
 
         &--text {
           color: #A3A3A3;

@@ -38,6 +38,7 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
+    "max-len": [0, 160, 2, { ignoreUrls: true }],
     "object-curly-newline": "off",
     "import/no-cycle": [2, { ignoreExternal: true }],
     "no-restricted-imports": ["error", {

@@ -1,16 +1,13 @@
 'use client';
 
-import { Filter, NavbarFilter, Pagination, Search, Card } from 'components';
+import { Card, Filter, NavbarFilter, Pagination, Search } from 'components';
+import { useSelector } from 'react-redux';
+import { RootState } from 'redux/store';
+import { shopApi } from 'resources/Shop';
 
-const ItemList = [
-  { name: 'DJI Air 3', price: '1549' },
-  { name: 'DJI Air 3', price: '1549' },
-  { name: 'DJI Air 3', price: '1549' },
-  { name: 'DJI Air 3', price: '1549' },
-  { name: 'DJI Air 3', price: '1549' },
-  { name: 'DJI Air 3', price: '1549' },
-];
 export default function Shop() {
+  const values = useSelector((state: RootState) => state.filter);
+  const data = shopApi.useShopData();
   return (
     <div className="marketplace">
       <Filter />
@@ -18,7 +15,7 @@ export default function Shop() {
         <Search />
         <NavbarFilter />
         <div className="marketplace__items">
-          {ItemList.map((obj) => <Card key={obj.name} title={obj.name} price={obj.price} />)}
+          {data?.map((obj: any) => <Card key={obj.id} title={obj.title} price={obj.price} />)}
         </div>
         <Pagination />
       </div>

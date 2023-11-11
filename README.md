@@ -1,5 +1,3 @@
-# [Documentation](https://ship.paralect.com/docs/intro)
-
 ## Starting application with Turborepo
 
 To run infra and all services -- just run: `npm start` 🚀

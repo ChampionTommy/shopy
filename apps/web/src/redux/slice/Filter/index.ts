@@ -1,35 +1,46 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PriceFilterState } from '@types';
 
-interface CounterState {
-  from: string | null;
-  to: string | null;
-  isEmpty: boolean;
-}
-
-const initialState: CounterState = {
-  from: null,
-  to: null,
-  isEmpty: true,
+const initialState: PriceFilterState = {
+  minPrice: '',
+  maxPrice: '',
+  isFrozen: false,
 };
-
 const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    setFrom: (state, action: PayloadAction<string>) => {
-      state.from = action.payload;
-      state.isEmpty = false;
+    setPriceMax: (state, action: PayloadAction<string>) => {
+      if (!state.isFrozen) {
+        state.maxPrice = action.payload;
+      }
     },
-    setTo: (state, action: PayloadAction<string>) => {
-      state.to = action.payload;
+    setPriceMin: (state, action: PayloadAction<string>) => {
+      if (!state.isFrozen) {
+        state.minPrice = action.payload;
+      }
     },
-    resetFilter: (state) => {
-      state.from = null;
-      state.to = null;
-      state.isEmpty = true;
+    resetPriceFilter(state) {
+      state.minPrice = '';
+      state.maxPrice = '';
+      state.isFrozen = false;
+    },
+    updatePriceFilter(
+      state,
+      action: PayloadAction<{ minPrice: string; maxPrice: string }>,
+    ) {
+      state.minPrice = action.payload.minPrice;
+      state.maxPrice = action.payload.maxPrice;
+      state.isFrozen = true;
     },
   },
 });
 
-export const { setFrom, setTo, resetFilter } = filterSlice.actions;
+export const {
+  setPriceMax,
+  setPriceMin,
+  resetPriceFilter,
+  updatePriceFilter,
+} = filterSlice.actions;
+
 export default filterSlice.reducer;

@@ -14,3 +14,9 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: any;
   register: UseFormRegister<FieldValues>;
 }
+
+export interface PriceFilterState {
+  minPrice: string;
+  maxPrice: string;
+  isFrozen: boolean;
+}

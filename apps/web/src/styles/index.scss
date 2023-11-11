@@ -24,7 +24,7 @@ h1 {
   color: #000;
   font-weight: 600;
   font-size: 20px;
-  line-height: 36px;
+  line-height: 28px;
 
 }
 
@@ -60,14 +60,15 @@ a {
 
 label {
   display: inline-block;
-  cursor:pointer;
 }
 
 input {
   &:focus-visible {
     outline: none;
   }
-
+  &:disabled {
+    cursor: not-allowed;
+  }
   &::placeholder {
     color: #A3A3A3;
     font-weight: 400;
