@@ -10,7 +10,9 @@ export function Card({ title, price }: any) {
         <Image src={ShopyItem} alt="shopy_item" width={1000} height={1000} />
       </div>
       <div className="card__body">
-        <h1>{title}</h1>
+        <h1 className="card__body_title">
+          {title}
+        </h1>
         <div className="card__body_price">
           <span className="card__body_price--text">Price:</span>
           <h1 role="presentation">

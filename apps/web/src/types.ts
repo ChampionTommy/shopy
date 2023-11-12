@@ -20,3 +20,11 @@ export interface PriceFilterState {
   maxPrice: string;
   isFrozen: boolean;
 }
+export interface Post {
+  id: number;
+  title: string;
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+}

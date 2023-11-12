@@ -1,7 +1,8 @@
 .marketplace {
     display: flex;
-    gap: 28px;
+    gap: 30px;
     align-items: flex-start;
+
     &__main {
       flex: 1 1;
     }
@@ -11,10 +12,9 @@
     }
 
     &__items {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-      justify-content: space-between;
-      gap: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 30px;
     }
   }

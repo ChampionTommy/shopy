@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from 'redux/store';
 import { resetPriceFilter } from 'redux/slice/Filter';
 
-export function NavbarFilter() {
+export function NavbarFilter({ countItems }: any) {
   const dispatch = useDispatch<AppDispatch>();
 
   const values = useSelector((state: RootState) => state.filter);
@@ -16,7 +16,7 @@ export function NavbarFilter() {
   return (
     <div className="navbar">
       <div className="navbar__poppup">
-        <h3>12 results</h3>
+        <h3>{`${countItems} results`}</h3>
         <Poppup />
       </div>
       {values.isFrozen === true

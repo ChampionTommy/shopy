@@ -35,9 +35,11 @@
   &:active {
     border: 1px solid #2B77EB;
   }
+
   &_disabled {
     border: 1px solid #ECECEE;
     cursor: not-allowed;
+
     &:hover {
       border: 1px solid #ECECEE;
     }
