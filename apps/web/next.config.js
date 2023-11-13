@@ -1,5 +1,5 @@
-const dotenv = require('dotenv-flow');
-const { join } = require('path');
+const dotenv = require("dotenv-flow");
+const { join } = require("path");
 
 const dotenvConfig = dotenv.config({
   node_env: process.env.NEXT_PUBLIC_APP_ENV,
@@ -11,17 +11,16 @@ module.exports = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'],
+      use: ["@svgr/webpack"],
     });
 
     return config;
   },
-  output: 'standalone',
+  output: "standalone",
   experimental: {
-    // this includes files from the monorepo base two directories up
-    outputFileTracingRoot: join(__dirname, '../../'),
+    outputFileTracingRoot: join(__dirname, "../../"),
   },
-  pageExtensions: ['tsx', 'ts'],
+  pageExtensions: ["tsx", "ts"],
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,
@@ -29,5 +28,14 @@ module.exports = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  transpilePackages: ['types', 'schemas', 'app-constants'],
+  transpilePackages: ["types", "schemas", "app-constants"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.imgur.com",
+        pathname: "/**",
+      },
+    ],
+  },
 };

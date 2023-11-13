@@ -6,28 +6,28 @@ type CardErrors = {
 };
 export function ErrorInfoCard({ status }: CardErrors) {
   return (
-    <div className="infoCard">
-      <div className="infoCard_logo">
+    <div className="info-card">
+      <div className="info-card_logo">
         <Image
           src={handleStatus(status)?.data.image || ''}
-          alt="infoCard__empty"
+          alt="info-card__empty"
           width={206}
           height={206}
-          className={`${status === 'empty' ? '' : 'infoCard_logo__img'}`}
+          className={`${status === 'empty' ? '' : 'info-card_logo__img'}`}
         />
       </div>
-      <div className="infoCard_title">
+      <div className="info-card_title">
         <h1>
           {handleStatus(status)?.data.title}
         </h1>
       </div>
-      <span className="infoCard_subtitle">
+      <span className="info-card_subtitle">
         {handleStatus(status)?.data.subtitle}
       </span>
       {handleStatus(status)?.data && (
       <a
         href={handleStatus(status)?.data.button.url}
-        className="button button__default infoCard_button"
+        className="button button__default info-card_button"
       >
         {handleStatus(status)?.data.button.title}
       </a>

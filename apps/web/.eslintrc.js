@@ -24,6 +24,7 @@ module.exports = {
     "react/prop-types": "off",
     "react/jsx-key": "off",
     "react/no-unescaped-entities": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
     "react/require-default-props": "off",
     "import/prefer-default-export": "off",
     "import/no-anonymous-default-export": "off",

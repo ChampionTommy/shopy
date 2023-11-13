@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from 'redux/store';
 import { resetPriceFilter } from 'redux/slice/Filter';
 
-export function NavbarFilter({ countItems }: any) {
+export function NavbarFilter({ countItems }) {
   const dispatch = useDispatch<AppDispatch>();
 
   const values = useSelector((state: RootState) => state.filter);

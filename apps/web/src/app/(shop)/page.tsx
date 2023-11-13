@@ -1,12 +1,26 @@
 'use client';
 
-import { Post } from '@types';
+import { Product } from '@types';
 import { Card, Filter, NavbarFilter, Pagination, Search } from 'components';
+import { useState } from 'react';
 import { useListProductsQuery } from 'services/marketplace.service';
 
 export default function Shop() {
-  const { data = [], isLoading, isFetching } = useListProductsQuery();
-  const count = 12;
+  const [page, setPage] = useState(0);
+  const { data = [], isLoading, isFetching } = useListProductsQuery({
+    offset: page,
+    limit: '6',
+  });
+
+  const handlePrevPage = () => {
+    if (page > 1) {
+      setPage((prevPage) => prevPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
 
   if (isLoading || isFetching) {
     return <div>Loading...</div>;
@@ -15,18 +29,24 @@ export default function Shop() {
   if (!data) {
     return <div>No posts :(</div>;
   }
+
   return (
     <div className="marketplace">
       <Filter />
       <div className="marketplace__main">
         <Search />
-        <NavbarFilter countItems={count} />
+        <NavbarFilter countItems={data.length} />
         <div className="marketplace__items">
-          {data?.map((obj: Post) => (
-            <Card key={obj.id} title={obj.title} price={obj.price} />
+          {data?.map((obj: Product) => (
+            <Card
+              key={obj.id}
+              title={obj.title}
+              price={obj.price}
+              images={obj.images}
+            />
           ))}
         </div>
-        <Pagination />
+        <Pagination page={page} prev={handlePrevPage} next={handleNextPage} />
       </div>
     </div>
   );

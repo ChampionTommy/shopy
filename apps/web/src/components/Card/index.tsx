@@ -1,18 +1,21 @@
 'use client';
 
+import { Product } from '@types';
 import Image from 'next/image';
-import { ShopyItem } from 'public/images';
 
-export function Card({ title, price }: any) {
+export function Card({ title, price, images }: Product) {
+  const staticImg = images[0];
   return (
     <div className="card">
       <div className="card__image">
-        <Image src={ShopyItem} alt="shopy_item" width={1000} height={1000} />
+        <Image src={staticImg} alt="shopy_item" width={1000} height={1000} />
       </div>
       <div className="card__body">
-        <h1 className="card__body_title">
-          {title}
-        </h1>
+        <div className="card__body-title">
+          <h1>
+            {title}
+          </h1>
+        </div>
         <div className="card__body_price">
           <span className="card__body_price--text">Price:</span>
           <h1 role="presentation">

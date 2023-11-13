@@ -10,12 +10,8 @@ export function HistoryTab() {
         <thead>
           <tr>
             <th>Item</th>
-          </tr>
-          <tr>
             <th>Unit Price</th>
-          </tr>
-          <tr>
-            <th>Date</th>
+            <th>Quantity</th>
           </tr>
         </thead>
         <tbody>

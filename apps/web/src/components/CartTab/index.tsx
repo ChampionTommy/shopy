@@ -1,3 +1,5 @@
+// eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+
 'use client';
 
 import Image from 'next/image';
@@ -15,14 +17,9 @@ export function CartTab({ empty }: any) {
               <thead>
                 <tr>
                   <th>Item</th>
-                </tr>
-                <tr>
                   <th>Unit Price</th>
-                </tr>
-                <tr>
                   <th>Quantity</th>
                 </tr>
-                <tr />
               </thead>
               <tbody>
                 <tr className="cart__table_item">
@@ -42,9 +39,12 @@ export function CartTab({ empty }: any) {
                     1
                     <Icon16Add />
                   </td>
-                  <td className="cart__table_remove">
-                    <Icon12Cancel width={20} height={20} />
-                    Remove
+
+                  <td>
+                    <span className="cart__table_remove">
+                      <Icon12Cancel width={20} height={20} />
+                      Remove
+                    </span>
                   </td>
                 </tr>
               </tbody>
