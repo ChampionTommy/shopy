@@ -4,6 +4,7 @@ import { PriceFilterState } from '@types';
 const initialState: PriceFilterState = {
   minPrice: '',
   maxPrice: '',
+  searchValue: '',
   isFrozen: false,
 };
 const filterSlice = createSlice({
@@ -19,6 +20,9 @@ const filterSlice = createSlice({
       if (!state.isFrozen) {
         state.minPrice = action.payload;
       }
+    },
+    setSearchValue(state, action: PayloadAction<string>) {
+      state.searchValue = action.payload;
     },
     resetPriceFilter(state) {
       state.minPrice = '';
@@ -39,6 +43,7 @@ const filterSlice = createSlice({
 export const {
   setPriceMax,
   setPriceMin,
+  setSearchValue,
   resetPriceFilter,
   updatePriceFilter,
 } = filterSlice.actions;

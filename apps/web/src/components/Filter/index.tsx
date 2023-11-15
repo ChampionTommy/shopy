@@ -3,17 +3,17 @@
 import { PriceFilterState } from '@types';
 import { Icon12CancelOutline } from '@vkontakte/icons';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   resetPriceFilter,
   setPriceMax,
   setPriceMin,
   updatePriceFilter,
 } from 'redux/slice/Filter';
-import { AppDispatch, RootState } from 'redux/store';
+import { RootState, useAppDispatch } from 'redux/store';
 
 export function Filter() {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   const [price, setPrice] = useState<PriceFilterState>({
     minPrice: '',
     maxPrice: '',

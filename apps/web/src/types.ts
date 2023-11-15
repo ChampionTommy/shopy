@@ -19,6 +19,7 @@ export interface PriceFilterState {
   minPrice: string;
   maxPrice: string;
   isFrozen: boolean;
+  searchValue?: string;
 }
 export interface Product {
   id?: number;

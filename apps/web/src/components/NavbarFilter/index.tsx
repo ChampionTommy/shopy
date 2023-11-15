@@ -1,11 +1,11 @@
 import { Poppup } from 'components/Poppup';
 import { Icon16CancelCircle } from '@vkontakte/icons';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from 'redux/store';
+import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from 'redux/store';
 import { resetPriceFilter } from 'redux/slice/Filter';
 
-export function NavbarFilter({ countItems }) {
-  const dispatch = useDispatch<AppDispatch>();
+export function NavbarFilter() {
+  const dispatch = useAppDispatch();
 
   const values = useSelector((state: RootState) => state.filter);
 
@@ -16,7 +16,7 @@ export function NavbarFilter({ countItems }) {
   return (
     <div className="navbar">
       <div className="navbar__poppup">
-        <h3>{`${countItems} results`}</h3>
+        <h3>Marketplace</h3>
         <Poppup />
       </div>
       {values.isFrozen === true

@@ -8,8 +8,6 @@
     border-radius: 12px;
 
     &__image {
-      position: relative;
-      height: 218.441px;
       overflow: hidden;
 
       img {
@@ -53,7 +51,7 @@
 @media (width >= 768px){
   .card {
     width: 318px;
-    height: 358px;
+    height: 356px;
 
     &__button {
       width: 100%;
