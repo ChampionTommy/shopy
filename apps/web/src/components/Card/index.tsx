@@ -8,7 +8,7 @@ export function Card({ title, price, images }: Product) {
   return (
     <div className="card">
       <div className="card__image">
-        <Image src={staticImg} alt="shopy_item" width={1000} height={1000} />
+        <img src={staticImg} alt="shopy_item" width={1000} height={1000} />
       </div>
       <div className="card__body">
         <div className="card__body-title">

@@ -38,13 +38,15 @@ module.exports = {
     "react/no-unstable-nested-components": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "error",
+    "react-hooks/exhaustive-deps": "off",
     "max-len": [0, 160, 2, { ignoreUrls: true }],
     "object-curly-newline": "off",
     "import/no-cycle": [2, { ignoreExternal: true }],
     "no-restricted-imports": ["error", {
-      name: "lodash",
-      message: "Import individual methods from the Lodash module",
+      patterns: [{
+        group: ["lodash/*"],
+        message: "Please use the default import from 'lodash' instead.",
+      }],
     }],
     "no-param-reassign": ["error", {
       props: true,

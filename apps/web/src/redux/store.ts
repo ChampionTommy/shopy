@@ -1,16 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { marketplaceService } from 'services';
+import { api } from 'resources/Marketplace/api';
 import Filter from './slice/Filter';
-import Products from './slice/Products';
 
+const reducers = combineReducers({
+  filter: Filter,
+  [api.reducerPath]: api.reducer,
+});
 export const store = configureStore({
-  reducer: {
-    filter: Filter,
-    products: Products,
-    [marketplaceService.reducerPath]: marketplaceService.reducer,
-  },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(marketplaceService.middleware),
+  reducer: reducers,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

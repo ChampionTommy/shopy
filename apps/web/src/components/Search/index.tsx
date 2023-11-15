@@ -6,7 +6,7 @@ import { setSearchValue } from 'redux/slice/Filter';
 import { useAppDispatch } from 'redux/store';
 import { debounce } from 'lodash';
 
-export function Search() {
+export function Search({ handleSearchResult }: any) {
   const dispatch = useAppDispatch();
   const [value, setValue] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
@@ -20,6 +20,7 @@ export function Search() {
   const updateSearchValue = useCallback(
     debounce((str: string) => {
       dispatch(setSearchValue(str));
+      handleSearchResult(str);
     }, 150),
     [],
   );

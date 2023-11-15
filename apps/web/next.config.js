@@ -8,11 +8,20 @@ const dotenvConfig = dotenv.config({
 
 module.exports = {
   env: dotenvConfig.parsed,
-  webpack(config) {
+  webpack(config, {isServer}) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
+
+    if(!isServer) {
+      config.resolve = {
+        ...config.resolve,
+        fallback: {
+          fs: false
+        }
+      }
+    }
 
     return config;
   },
