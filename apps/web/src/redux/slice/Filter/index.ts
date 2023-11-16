@@ -33,9 +33,13 @@ const filterSlice = createSlice({
       state,
       action: PayloadAction<{ minPrice: string; maxPrice: string }>,
     ) {
-      state.minPrice = action.payload.minPrice;
-      state.maxPrice = action.payload.maxPrice;
-      state.isFrozen = true;
+      const { minPrice, maxPrice } = action.payload;
+      return {
+        ...state,
+        minPrice,
+        maxPrice,
+        isFrozen: true,
+      };
     },
   },
 });

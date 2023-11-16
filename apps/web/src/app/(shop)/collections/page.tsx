@@ -3,8 +3,10 @@
 import { Icon20AddCircle, Icon24DeleteOutline } from '@vkontakte/icons';
 import Image from 'next/image';
 import { ShopyItem } from 'public/images';
+import { useState } from 'react';
 
 export default function Collections() {
+  const [createProduct, setCreateProduct] = useState(false);
   return (
     <div className="collections">
       <span className="collections__title">Your Products</span>

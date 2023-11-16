@@ -1,36 +1,44 @@
 'use client';
 
-import { PriceFilterState } from '@types';
 import { Icon12CancelOutline } from '@vkontakte/icons';
-import { useEffect, useState } from 'react';
+import { debounce } from 'lodash';
+import { ChangeEvent, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  resetPriceFilter,
-  setPriceMax,
-  setPriceMin,
-  updatePriceFilter,
-} from 'redux/slice/Filter';
+import { resetPriceFilter, updatePriceFilter } from 'redux/slice/Filter';
 import { RootState, useAppDispatch } from 'redux/store';
 
 export function Filter() {
   const dispatch = useAppDispatch();
-  const [price, setPrice] = useState<PriceFilterState>({
-    minPrice: '',
-    maxPrice: '',
-    isFrozen: false,
-  });
   const values = useSelector((state: RootState) => state.filter);
 
   const handleResetFilter = () => {
     dispatch(resetPriceFilter());
   };
-  const handleApplyParams = () => {
-    dispatch(updatePriceFilter(price));
-  };
 
-  useEffect(() => {
-    setPrice(values);
-  }, [values]);
+  const [priceValues, setPriceValues] = useState({
+    minPrice: '',
+    maxPrice: '',
+  });
+  const [shouldUpdate, setShouldUpdate] = useState(false);
+
+  const updateSearchFilter = useCallback(
+    debounce(() => {
+      if (shouldUpdate) {
+        dispatch(updatePriceFilter(priceValues));
+        setShouldUpdate(false);
+      }
+    }, 150),
+    [shouldUpdate, dispatch, priceValues],
+  );
+
+  const onChangeInput = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setPriceValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+    setShouldUpdate(true);
+  }, []);
   return (
     <div className="filter">
       <div className="filter__header">
@@ -68,8 +76,8 @@ export function Filter() {
                 type="number"
                 placeholder="100$"
                 name="minPrice"
-                value={values.minPrice || ''}
-                onChange={(e) => dispatch(setPriceMin(e.target.value))}
+                value={priceValues.minPrice}
+                onChange={onChangeInput}
                 disabled={values.isFrozen}
               />
             </div>
@@ -88,8 +96,8 @@ export function Filter() {
                 type="number"
                 name="maxPrice"
                 placeholder="1000$"
-                value={values.maxPrice || ''}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => dispatch(setPriceMax(e.target.value))}
+                value={priceValues.maxPrice}
+                onChange={onChangeInput}
                 disabled={values.isFrozen}
               />
             </div>
@@ -101,7 +109,7 @@ export function Filter() {
           <button
             className="button button__default filter_btn_apply"
             type="button"
-            onClick={handleApplyParams}
+            onClick={updateSearchFilter}
           >
             Apply Parameters
           </button>

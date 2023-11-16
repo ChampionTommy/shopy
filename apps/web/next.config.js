@@ -1,33 +1,17 @@
-const dotenv = require("dotenv-flow");
-const { join } = require("path");
-
-const dotenvConfig = dotenv.config({
-  node_env: process.env.NEXT_PUBLIC_APP_ENV,
-  silent: true,
-});
+const path = require('path');
 
 module.exports = {
-  env: dotenvConfig.parsed,
-  webpack(config, {isServer}) {
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack"],
+      use: ['@svgr/webpack'],
     });
-
-    if(!isServer) {
-      config.resolve = {
-        ...config.resolve,
-        fallback: {
-          fs: false
-        }
-      }
-    }
 
     return config;
   },
   output: "standalone",
   experimental: {
-    outputFileTracingRoot: join(__dirname, "../../"),
+    outputFileTracingRoot: path.join(__dirname, "../../"),
   },
   pageExtensions: ["tsx", "ts"],
   reactStrictMode: true,

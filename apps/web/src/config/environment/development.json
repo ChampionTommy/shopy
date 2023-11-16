@@ -1,5 +1,5 @@
 {
-  "apiUrl": "http://localhost:3001",
+  "apiUrl": "https://api.escuelajs.co/api/v1/",
   "wsUrl": "http://localhost:3001",
   "webUrl": "http://localhost:3002"
 }

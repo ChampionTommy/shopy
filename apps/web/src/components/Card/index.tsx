@@ -1,7 +1,6 @@
 'use client';
 
 import { Product } from '@types';
-import Image from 'next/image';
 
 export function Card({ title, price, images }: Product) {
   const staticImg = images[0];
