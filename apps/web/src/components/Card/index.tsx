@@ -7,14 +7,12 @@ export function Card({ title, price, images }: Product) {
   return (
     <div className="card">
       <div className="card__image">
-        <img src={staticImg} alt="shopy_item" width={1000} height={1000} />
+        <img src={staticImg} alt="shopy_item" width={316} height={178} />
       </div>
       <div className="card__body">
-        <div className="card__body-title">
-          <h1>
-            {title}
-          </h1>
-        </div>
+        <h1>
+          {title}
+        </h1>
         <div className="card__body_price">
           <span className="card__body_price--text">Price:</span>
           <h1 role="presentation">

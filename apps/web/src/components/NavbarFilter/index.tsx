@@ -1,13 +1,12 @@
 import { Poppup } from 'components/Poppup';
 import { Icon16CancelCircle } from '@vkontakte/icons';
-import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from 'redux/store';
+import { useAppDispatch, useTypedSelector } from 'redux/store';
 import { resetPriceFilter } from 'redux/slice/Filter';
 
 export function NavbarFilter() {
   const dispatch = useAppDispatch();
 
-  const values = useSelector((state: RootState) => state.filter);
+  const values = useTypedSelector((state) => state.filter);
 
   const handleResetParams = () => {
     dispatch(resetPriceFilter());

@@ -1,4 +1,6 @@
 .filter {
+  display: grid;
+  grid-template-rows: 24px minmax(auto, 102px);
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ECECEE;

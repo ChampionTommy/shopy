@@ -1,44 +1,37 @@
 'use client';
 
-import { Icon12CancelOutline } from '@vkontakte/icons';
-import { debounce } from 'lodash';
 import { ChangeEvent, useCallback, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { resetPriceFilter, updatePriceFilter } from 'redux/slice/Filter';
+import { Icon12CancelOutline } from '@vkontakte/icons';
 import { RootState, useAppDispatch } from 'redux/store';
+import { useSelector } from 'react-redux';
+import { debounce } from 'lodash';
 
 export function Filter() {
   const dispatch = useAppDispatch();
   const values = useSelector((state: RootState) => state.filter);
-
-  const handleResetFilter = () => {
-    dispatch(resetPriceFilter());
-  };
-
   const [priceValues, setPriceValues] = useState({
     minPrice: '',
     maxPrice: '',
   });
-  const [shouldUpdate, setShouldUpdate] = useState(false);
+
+  const handleResetFilter = () => {
+    dispatch(resetPriceFilter());
+    setPriceValues({ minPrice: '', maxPrice: '' });
+  };
 
   const updateSearchFilter = useCallback(
     debounce(() => {
-      if (shouldUpdate) {
-        dispatch(updatePriceFilter(priceValues));
-        setShouldUpdate(false);
-      }
+      dispatch(updatePriceFilter(priceValues));
     }, 150),
-    [shouldUpdate, dispatch, priceValues],
+    [dispatch, updatePriceFilter, priceValues],
   );
 
-  const onChangeInput = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setPriceValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-    setShouldUpdate(true);
-  }, []);
+    setPriceValues((prevValues) => ({ ...prevValues, [name]: value }));
+  };
+
   return (
     <div className="filter">
       <div className="filter__header">
