@@ -1,36 +1,10 @@
 'use client';
 
-import { ChangeEvent, useCallback, useState } from 'react';
-import { resetPriceFilter, updatePriceFilter } from 'redux/slice/Filter';
 import { Icon12CancelOutline } from '@vkontakte/icons';
-import { RootState, useAppDispatch } from 'redux/store';
-import { useSelector } from 'react-redux';
-import { debounce } from 'lodash';
+import { useFilter } from 'hooks/filter';
 
 export function Filter() {
-  const dispatch = useAppDispatch();
-  const values = useSelector((state: RootState) => state.filter);
-  const [priceValues, setPriceValues] = useState({
-    minPrice: '',
-    maxPrice: '',
-  });
-
-  const handleResetFilter = () => {
-    dispatch(resetPriceFilter());
-    setPriceValues({ minPrice: '', maxPrice: '' });
-  };
-
-  const updateSearchFilter = useCallback(
-    debounce(() => {
-      dispatch(updatePriceFilter(priceValues));
-    }, 150),
-    [dispatch, updatePriceFilter, priceValues],
-  );
-
-  const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setPriceValues((prevValues) => ({ ...prevValues, [name]: value }));
-  };
+  const { values, onChangeInput, updateSearchFilter, handleResetFilter, priceValues } = useFilter();
 
   return (
     <div className="filter">

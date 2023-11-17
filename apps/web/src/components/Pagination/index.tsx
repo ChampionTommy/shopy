@@ -2,23 +2,33 @@
 
 import { Icon12ChevronLeft, Icon12ChevronRight } from '@vkontakte/icons';
 
-export function Pagination({ prev, next, page }: any) {
+export function Pagination(
+  { numbers, currentPage, prePage, nextPage, changeCPage }: any,
+) {
   return (
     <ul className="pagination">
       <li
         className={`pagination__item pagination__chevron pagination__arrowLeft ${
-          page === 0 ? ' pagination__disable' : ''
+          currentPage === 0 ? ' pagination__disable' : ''
         }`}
-        onClick={prev}
+        onClick={prePage}
       >
         <Icon12ChevronLeft width={16} height={16} />
       </li>
-      <li className="pagination__item pagination__active">1</li>
-      <li className="pagination__item">2</li>
-      <li className="pagination__item">3</li>
+      {numbers.map((n: number) => (
+        <li
+          key={n}
+          className={`pagination__item ${
+            currentPage === n ? 'pagination__active' : ''
+          }`}
+          onClick={() => changeCPage(n)}
+        >
+          {n}
+        </li>
+      ))}
       <li
         className="pagination__item pagination__chevron pagination__arrowRight"
-        onClick={next}
+        onClick={nextPage}
       >
         <Icon12ChevronRight width={16} height={16} />
       </li>
