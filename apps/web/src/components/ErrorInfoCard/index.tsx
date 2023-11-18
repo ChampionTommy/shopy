@@ -1,10 +1,9 @@
+import { HandleStatusType } from '@types';
 import Image from 'next/image';
+import Link from 'next/link';
 import { handleStatus } from 'utils';
 
-type CardErrors = {
-  status: string;
-};
-export function ErrorInfoCard({ status }: CardErrors) {
+export function ErrorInfoCard(status: HandleStatusType) {
   return (
     <div className="info-card">
       <div className="info-card_logo">
@@ -25,12 +24,12 @@ export function ErrorInfoCard({ status }: CardErrors) {
         {handleStatus(status)?.data.subtitle}
       </span>
       {handleStatus(status)?.data && (
-      <a
-        href={handleStatus(status)?.data.button.url}
-        className="button button__default info-card_button"
-      >
-        {handleStatus(status)?.data.button.title}
-      </a>
+        <Link
+          href={handleStatus(status)?.data.button.url}
+          className="button button__default info-card_button"
+        >
+          {handleStatus(status)?.data.button.title}
+        </Link>
       )}
     </div>
   );

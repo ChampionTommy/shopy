@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     // solve problem with public folder
     "import/no-unresolved": [2, { ignore: ["public"] }],
+    "@next/next/no-html-link-for-pages": "off",
     "react/prop-types": "off",
     "react/jsx-key": "off",
     "react/no-unescaped-entities": "off",

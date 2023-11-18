@@ -1,3 +1,4 @@
+import { StaticImageData } from 'next/image';
 import { InputHTMLAttributes } from 'react';
 import { FieldValues, UseFormRegister } from 'react-hook-form';
 
@@ -31,3 +32,25 @@ export interface Product {
   creationAt?: string,
   updatedAt?: string,
 }
+
+export type CardErrors = {
+  status: string;
+};
+
+type Button = {
+  url: string;
+  title: string;
+};
+
+export interface StatusData {
+  image: StaticImageData | null;
+  title: string;
+  subtitle: string;
+  button: Button;
+}
+
+export type HandleStatusType = 'empty' | 'failed' | 'successfull';
+
+export type HandleStatusResponse = {
+  data: StatusData;
+};

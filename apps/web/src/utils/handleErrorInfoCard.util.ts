@@ -1,20 +1,22 @@
+import { HandleStatusResponse, HandleStatusType } from '@types';
 import { CartEmpty, CartFailed, CartSuccessfull } from 'public/images';
 
-export const handleStatus = (status: string) => {
+export const handleStatus = (status: HandleStatusType): HandleStatusResponse => {
   if (status === 'empty') {
     return {
       data: {
         image: CartEmpty,
-        title: " Oops, there's nothing here yet!",
+        title: "Oops, there's nothing here yet!",
         subtitle:
-            "You haven't made any purchases yet. Go to the marketplace and make purchases.",
+          "You haven't made any purchases yet. Go to the marketplace and make purchases.",
         button: {
           url: '/shop',
           title: 'Back to marketplace',
         },
       },
     };
-  } if (status === 'failed') {
+  }
+  if (status === 'failed') {
     return {
       data: {
         image: CartFailed,
@@ -26,7 +28,8 @@ export const handleStatus = (status: string) => {
         },
       },
     };
-  } if (status === 'successfull') {
+  }
+  if (status === 'successfull') {
     return {
       data: {
         image: CartSuccessfull,

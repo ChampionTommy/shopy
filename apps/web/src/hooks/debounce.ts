@@ -9,8 +9,8 @@ export function useDebounce(value: string, delay?: number) {
   const updateDebounceValue = useCallback(
     debounce(() => {
       dispatch(setSearchValue(value));
-    }, delay),
-    [],
+    }, delay || 150),
+    [value],
   );
 
   return updateDebounceValue;
