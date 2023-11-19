@@ -23,14 +23,15 @@ export interface PriceFilterState {
   searchValue?: string;
 }
 export interface Product {
-  id?: number;
+  id: number;
   title: string;
   price: string;
   category?: string;
   description?: string;
   images: any;
-  creationAt?: string,
-  updatedAt?: string,
+  creationAt?: string;
+  updatedAt?: string;
+  count?: number;
 }
 
 export type CardErrors = {
@@ -49,8 +50,13 @@ export interface StatusData {
   button: Button;
 }
 
-export type HandleStatusType = 'empty' | 'failed' | 'successfull';
+export type HandleStatusType = { status: 'empty' | 'failed' | 'successfull' };
 
 export type HandleStatusResponse = {
   data: StatusData;
 };
+
+export interface CartSliceState {
+  totalPrice: number;
+  items: Product[];
+}

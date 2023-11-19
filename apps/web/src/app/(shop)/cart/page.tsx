@@ -1,11 +1,10 @@
 'use client';
 
-import { CartTab } from 'components/CartTab';
 import { HistoryTab } from 'components/HistoryTab';
 import { useState } from 'react';
+import { CartTab } from 'components';
 
 export default function Cart() {
-  const [empty, setEmpty] = useState(true);
   const [cartTabs, setCartTabs] = useState('cart');
   const handleCartTab = () => {
     setCartTabs('cart');
@@ -37,7 +36,7 @@ export default function Cart() {
           History
         </span>
       </div>
-      {cartTabs === 'cart' && <CartTab empty={empty} />}
+      {cartTabs === 'cart' && <CartTab />}
       {cartTabs === 'history' && <HistoryTab />}
     </div>
   );

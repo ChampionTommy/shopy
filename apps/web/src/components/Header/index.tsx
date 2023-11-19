@@ -9,8 +9,20 @@ import {
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
+import { useEffect, useRef } from 'react';
+import { useTypedSelector } from 'redux/store';
+
 export function Header() {
   const router = usePathname();
+  const isMounted = useRef(false);
+  const items = useTypedSelector((state) => state.cart.items);
+
+  useEffect(() => {
+    if (isMounted) {
+      localStorage?.setItem('cart', JSON.stringify(items));
+    }
+    isMounted.current = true;
+  }, [items]);
   return (
     <div className="header__shop">
       <Link href="/" className="header__shop_logo">
@@ -47,9 +59,7 @@ export function Header() {
         <Link
           href="/cart"
           className={`header__shop_controllers__item  ${
-            router === '/cart'
-              ? 'header__shop_controllers__item_active'
-              : ''
+            router === '/cart' ? 'header__shop_controllers__item_active' : ''
           }`}
         >
           <Icon28ShoppingCartOutline width={34} height={34} />
@@ -60,7 +70,7 @@ export function Header() {
                 : ''
             }`}
           >
-            3
+            {items.length}
           </span>
         </Link>
         <div className="header__shop_controllers__item">

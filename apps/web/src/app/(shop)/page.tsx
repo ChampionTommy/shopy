@@ -16,6 +16,7 @@ export default function Shop() {
     pageNumbers,
     totalPages,
   } = usePaginate(data);
+
   return (
     <div className="marketplace">
       <Filter />
@@ -28,6 +29,7 @@ export default function Shop() {
             : records?.map((obj: Product) => (
               <Card
                 key={obj.id}
+                id={obj.id}
                 title={obj.title}
                 price={obj.price}
                 images={obj.images}
