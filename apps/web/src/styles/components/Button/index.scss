@@ -1,13 +1,13 @@
 .button {
+  cursor: pointer;
   min-height: 25px;
-  color: #fff;
-  font-weight: 500;
   font-size: 14px;
+  font-weight: 500;
   line-height: 21px;
+  color: #fff;
   text-align: center;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
 
   &--large {
     width: 100%;
@@ -40,7 +40,7 @@
 
   &__secondary {
     color: #767676;
-    background-color:transparent;
+    background-color: transparent;
     border: 1px solid #767676;
 
     &:hover {

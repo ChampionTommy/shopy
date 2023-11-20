@@ -1,50 +1,55 @@
 .input {
+
   &__block {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    overflow: hidden;
 
     &_password {
       position: relative;
 
-    &--icon {
-      position: absolute;
-      top: 43px;
-      right: 12px;
-      cursor: pointer;
+      &--icon {
+        cursor: pointer;
+        position: absolute;
+        top: 43px;
+        right: 12px;
       }
     }
   }
 
   &__default {
-  padding:1px 14px;
-  color: #201F22;
-  border: 1px solid #ECECEE;
-  border-radius: 8px;
-  caret-color: #2B77EB;
-
-  &:hover {
-    border: 1px solid #2B77EB;
-  }
-
-  &:focus {
-    border: 1px solid #2B77EB;
-  }
-
-  &:active {
-    border: 1px solid #2B77EB;
-  }
-
-  &_disabled {
+    padding: 1px 14px;
+    color: #201F22;
     border: 1px solid #ECECEE;
-    cursor: not-allowed;
+    border-radius: 8px;
+    caret-color: #2B77EB;
 
     &:hover {
+      border: 1px solid #2B77EB;
+    }
+
+    &:focus {
+      border: 1px solid #2B77EB;
+    }
+
+    &:active {
+      border: 1px solid #2B77EB;
+    }
+
+    &_active {
+      border: 1px solid #2B77EB;
+    }
+
+    &_disabled {
+      cursor: not-allowed;
       border: 1px solid #ECECEE;
+
+      &:hover {
+        border: 1px solid #ECECEE;
+      }
     }
   }
-}
 }
 
 

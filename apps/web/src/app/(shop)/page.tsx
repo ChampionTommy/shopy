@@ -19,7 +19,9 @@ export default function Shop() {
 
   return (
     <div className="marketplace">
-      <Filter />
+      <aside>
+        <Filter />
+      </aside>
       <div className="marketplace__main">
         <Search />
         <NavbarFilter />

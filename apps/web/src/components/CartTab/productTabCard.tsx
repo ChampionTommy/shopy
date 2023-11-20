@@ -26,7 +26,7 @@ export function ProductTabCard({ id, title, price, count, images }: Product) {
   return (
     <tr className="cart__table_item">
       <td className="cart__table_item_block">
-        <Image
+        <img
           src={images[0]}
           alt="cart_item"
           width={80}

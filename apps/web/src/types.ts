@@ -60,3 +60,15 @@ export interface CartSliceState {
   totalPrice: number;
   items: Product[];
 }
+
+export type PaginationProp = {
+  numbers: number[] | [];
+  currentPage: number;
+  setPage: (pageNumber: number) => void;
+  totalPages: number;
+};
+export type ProductDataTypes = {
+  title: string | null;
+  imageUrl: string | null;
+  count: number | null;
+};

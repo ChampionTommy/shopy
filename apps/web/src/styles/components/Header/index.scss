@@ -1,49 +1,50 @@
 .header {
-&__top-bar {
+
+  &__top-bar {
     display: flex;
     gap: 32px;
     align-items: center;
 
-  &_item {
-  color: #A3A3A3;
+    &_item {
+      color: #A3A3A3;
 
-  &:hover {
-    color: #000;
-  }
-}
-
-&_item__active {
-   display: flex;
-gap: 12px;
-align-items: center;
-justify-content: center;
-height: 40px;
-padding: 2px 20px; 
-color: #000;
-background-color: #ECECEE;
-border-radius: 20px;
-}
-
-  &_tab {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    color: #A3A3A3;
-    border-radius: 99px;
-    cursor: pointer;
-    transition: color 0.15s ease-in;
-
-    &:hover {
-      color: #201F22;
+      &:hover {
+        color: #000;
+      }
     }
-  } 
 
-  &_text {
-    margin: 0 20px;
-    font-weight: 500;
+    &_item__active {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      padding: 2px 20px; 
+      color: #000;
+      background-color: #ECECEE;        
+      border-radius: 20px;
+    }
+
+    &_tab {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      color: #A3A3A3;
+      border-radius: 99px;
+      transition: color .15s ease-in;
+
+      &:hover {
+        color: #201F22;
+      }
+    } 
+
+    &_text {
+      margin: 0 20px;
+      font-weight: 500;
+    }
   }
-}
 
   &__shop {
     display: flex;
@@ -52,30 +53,36 @@ border-radius: 20px;
     margin-bottom: 32px;
 
     &_logo {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    color: #000;  
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      color: #000;  
+
+      &--icon {
+        width: 40px;
+        height: 40px;
+      }
     } 
 
     &_controllers {
-    display: flex;
-    gap: 32px;
-    align-items: center;
+      display: flex;
+      gap: 32px;
+      align-items: center;
 
       &__item {
+        cursor: pointer;
         position: relative;
         color: #767676;
-        cursor: pointer;
 
         &_active {
+
           svg {
             color: #2B77EB;
           }
         }
 
         &:hover {
-          color:#2B77EB; 
+          color: #2B77EB; 
         }
 
         &__cart {
@@ -95,11 +102,11 @@ border-radius: 20px;
             justify-content: center;
             width: 25px;
             height: 25px;
-            margin-left: 0.75rem;
+            margin-left: .75rem;
             font-weight: 600;
             background-color: transparent;
             border-radius: 50%;
-            transition: 0.15s ease-in;
+            transition: .15s ease-in;
             
             &_active {
               color: #fff;

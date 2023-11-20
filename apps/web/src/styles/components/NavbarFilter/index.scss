@@ -1,67 +1,30 @@
 .navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 20px;
-
-  &__poppup {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-
-    &_sort {
-      display: flex;
-      gap: 8px;
-      color: #767676;
-      cursor: pointer;
-
-      &__block {
-        position: relative;
-
-        ul {
-          position: absolute;
-          top: 35px;
-          right: -30px;
-          z-index: 1;
-          display: flex;
-          flex-direction: column;
-          width: 130px;
-          padding: 12px;
-          background-color: #FFF;
-          border: 1px solid #ECECEE;
-          border-radius: 12px;
-
-          li {
-            margin-bottom: 6px;
-
-            &:hover {
-              color: #2B77EB;
-            }
-          }
-        }
-
-        &--title {
-          color: #000;
-          font-weight: 500;
-          font-size: 14px;
-          font-style: normal;
-          line-height: 21px;
-        }
-      }
-    }
-  }
-
+    
+  &--title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    color: #000;
+  }  
+    
   &__filter {
     display: inline-flex;
     gap: 8px;
     align-items: center;
     justify-content: center;
     height: 16px;
+    margin-top: 10px;
     padding: 10px 20px;
     background: #FFF;
     border: 1px solid #ECECEE;
     border-radius: 25px;
 
     h5 {
-      color:#000;
+      color: #000;
     }
 
     svg {
@@ -69,3 +32,5 @@
     }
   }
 }
+
+ 

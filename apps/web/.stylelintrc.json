@@ -1,18 +1,17 @@
 {
   "extends": [
     "stylelint-config-standard-scss",
-    "stylelint-config-rational-order"
+    "stylelint-config-airbnb"
   ],
   "plugins": [
-    "stylelint-selector-bem-pattern",
-    "stylelint-order"
+    "stylelint-order",
+    "stylelint-selector-bem-pattern"
   ],
   "rules": {
-    "order/properties-order": [],
-    "plugin/rational-order": [true, {
-      "border-in-box-model": false,
-      "empty-line-between-groups": false
-    }],
+    "order/order": [
+			"custom-properties",
+			"declarations"
+		],
     "plugin/selector-bem-pattern": {
       "componentName": "[AZ] +",
       "componentSelectors": {

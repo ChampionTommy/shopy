@@ -28,7 +28,7 @@ export function Header() {
       <Link href="/" className="header__shop_logo">
         <Image
           src={ShopyLogo}
-          className="header__shop_block__logo"
+          className="header__shop_logo--icon"
           width={40}
           height={40}
           alt="shopy_logo"

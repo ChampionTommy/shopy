@@ -1,20 +1,20 @@
 .marketplace {
-    display: flex;
-    gap: 28px;
-    align-items: flex-start;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
 
-    &__main {
-      flex: 1 1;
-    }
-
-   &__sidebar {
-      width: 315px;
-    }
-
-    &__items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 23px;
-      margin-bottom: 30px;
-         }
+  &__main {
+    flex: 1 1;
   }
+
+  &__sidebar {
+    width: 315px;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+    margin-bottom: 30px;
+  }
+}

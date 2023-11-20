@@ -1,8 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import { Icon12Cancel, Icon16Add, Icon16Minus } from '@vkontakte/icons';
-import { useAppDispatch, useTypedSelector } from 'redux/store';
+import { useTypedSelector } from 'redux/store';
 import { Product } from '@types';
 import { ProductTabCard } from './productTabCard';
 

@@ -1,18 +1,24 @@
 'use client';
 
-import { useRef } from 'react';
 import { Icon16CancelCircle, Icon16SearchOutline } from '@vkontakte/icons';
 import { useSearch } from 'hooks/search';
 
 export function Search() {
-  const inputRef = useRef<HTMLInputElement>(null);
   const {
     value,
     onClickClear,
     handleChange,
+    inputRef,
+    inputDiv,
+    isActive,
   } = useSearch();
   return (
-    <div className="search input__default">
+    <div
+      ref={inputDiv}
+      className={`search input__default ${
+        isActive ? 'input__default_active' : ''
+      } `}
+    >
       <Icon16SearchOutline color="#A3A3A3" />
       <input
         ref={inputRef}

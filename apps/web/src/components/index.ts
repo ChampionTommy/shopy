@@ -2,7 +2,6 @@ export * from './CheckStatus';
 export * from './Filter';
 export * from './Search';
 export * from './NavbarFilter';
-export * from './Poppup';
 export * from './Pagination';
 export * from './Header';
 export * from './Card';

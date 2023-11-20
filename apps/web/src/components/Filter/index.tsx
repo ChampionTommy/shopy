@@ -7,7 +7,7 @@ export function Filter() {
   const { values, onChangeInput, updateSearchFilter, handleResetFilter, priceValues } = useFilter();
 
   return (
-    <div className="filter">
+    <article className="filter">
       <div className="filter__header">
         <h1>Filters</h1>
         {values.isFrozen
@@ -82,6 +82,6 @@ export function Filter() {
           </button>
         )
         : null}
-    </div>
+    </article>
   );
 }
