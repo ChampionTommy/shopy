@@ -12,6 +12,7 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { setupListeners } from '@reduxjs/toolkit/query';
 import Cart from './slice/Cart';
 import Filter from './slice/Filter';
 
@@ -38,6 +39,7 @@ export const store = configureStore({
   ]),
 });
 
+setupListeners(store.dispatch);
 export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;

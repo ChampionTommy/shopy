@@ -2,12 +2,6 @@ import { StaticImageData } from 'next/image';
 import { InputHTMLAttributes } from 'react';
 import { FieldValues, UseFormRegister } from 'react-hook-form';
 
-export interface ButtonProps {
-  name: string;
-  type: 'default' | 'secondary' | 'ghost';
-  size: 'large' | 'medium' | 'small';
-}
-
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   title: string;
@@ -68,7 +62,7 @@ export type PaginationProp = {
   totalPages: number;
 };
 export type ProductDataTypes = {
-  title: string | null;
-  imageUrl: string | null;
-  count: number | null;
+  title: string;
+  imageUrl: string;
+  price: number | string;
 };

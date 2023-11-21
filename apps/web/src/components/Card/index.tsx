@@ -20,7 +20,7 @@ export function Card({ title, price, images, id }: Product) {
   return (
     <div className="card">
       <div className="card__image">
-        <img src={staticImg} alt="shopy_item" width={316} height={178} />
+        <img src={staticImg} alt="shopy_item" />
       </div>
       <div className="card__body">
         <h1>

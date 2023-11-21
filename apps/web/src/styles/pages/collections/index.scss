@@ -7,25 +7,14 @@
 
   &__list {
     display: flex;
-    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
     margin-top: 20px;
   }
-
-  &__item {
+  &__controllers {
     position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-    justify-content: flex-end;
-    width: 274px;
-    height: 266px;
-    background: #FFF;
-    border: 1.126px solid #ECECEE;
-    border-radius: 12px;
-
-    &__delete {
+    &--delete {
       cursor: pointer;
       position: absolute;
       z-index: 1;
@@ -40,12 +29,11 @@
       background: #FFF;
       border-radius: 8px;
     }
-
-    &__tip {
+    &--tipOnSale {
       position: absolute;
       z-index: 1;
       right: 15px;
-      bottom: 110px;
+      bottom: 98px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -58,17 +46,47 @@
       background: #FEF4E6;
       border-radius: 8px;
     }
+    &--tipSold {
+      position: absolute;
+      z-index: 1;
+      right: 15px;
+      bottom: 98px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 12px;
+      font-size: 14px;
+      font-weight: 500;
+      font-style: normal;
+      line-height: 20px;
+      color: #17B26A;
+      background: #E8F7F0;
+      border-radius: 8px;
+    }
 
+  }
+  &__item {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 254px;
+    height: 250px;
+    background: #FFF;
+    border: 1.126px solid #ECECEE;
+    border-radius: 12px;
+ 
     img {
       position: absolute;
-      transform: scale(1.1);
-      height: 280px;
+      transform: scale(1.0);
     }
 
     &_add {
       cursor: pointer;
       justify-content: center;
-
+      align-items: center;
+      gap: 20px;
       &__text {
         font-size: 20px;
         font-weight: 400;
