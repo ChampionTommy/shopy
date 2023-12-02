@@ -2,6 +2,8 @@
 
 import { Product } from '@types';
 import { Icon20AddCircle, Icon24DeleteOutline } from '@vkontakte/icons';
+import { Pagination } from 'components';
+import { usePaginate } from 'hooks/paginate';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -26,7 +28,13 @@ export default function Collections() {
       deleteProduct(productId).unwrap();
     }
   };
-
+  const {
+    currentPage,
+    setCurrentPage,
+    records,
+    pageNumbers,
+    totalPages,
+  } = usePaginate(data);
   return (
     <div className="collections">
       <span className="collections__title">Your Products</span>
@@ -38,7 +46,7 @@ export default function Collections() {
           <Icon20AddCircle width={40} height={40} color="#2B77EB" />
           <span className="collections__item_add__text">New Product</span>
         </Link>
-        {data?.map((obj: Product) => (
+        {records?.map((obj: Product) => (
           <div key={obj.id} className="collections__item">
             <div className="collections__item__contollers">
               <div
@@ -73,6 +81,12 @@ export default function Collections() {
           </div>
         ))}
       </div>
+      <Pagination
+        setPage={setCurrentPage}
+        currentPage={currentPage}
+        numbers={pageNumbers}
+        totalPages={totalPages}
+      />
     </div>
   );
 }

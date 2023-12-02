@@ -6,20 +6,11 @@
     align-items: flex-start;
     margin-bottom: 40px;
 
-    &_item {
+    &_title {
       cursor: pointer;
       font-size: 20px;
       font-weight: 600;
       line-height: 36px;
-      color: #a3a3a3;
-
-      &:hover {
-        color: #000;
-      }
-
-      &__active {
-        color: #000;
-      }
     }
   }
 

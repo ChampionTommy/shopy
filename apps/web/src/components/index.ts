@@ -5,6 +5,5 @@ export * from './NavbarFilter';
 export * from './Pagination';
 export * from './Header';
 export * from './Card';
-export * from './HistoryTab';
 export * from './ErrorInfoCard';
 export * from './CartTab';

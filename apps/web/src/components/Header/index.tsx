@@ -73,12 +73,6 @@ export function Header() {
             {items.length}
           </span>
         </Link>
-        <div className="header__shop_controllers__item">
-          <Icon24DoorArrowRightOutline
-            width={34}
-            height={34}
-          />
-        </div>
       </div>
     </div>
   );

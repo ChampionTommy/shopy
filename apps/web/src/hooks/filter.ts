@@ -28,5 +28,6 @@ export function useFilter() {
     const { name, value } = event.target;
     setPriceValues((prevValues) => ({ ...prevValues, [name]: value }));
   };
+
   return { values, onChangeInput, updateSearchFilter, handleResetFilter, priceValues };
 }

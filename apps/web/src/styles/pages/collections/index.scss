@@ -1,5 +1,7 @@
 .collections {
-
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
   &__title { 
     font-size: 20px;
     font-weight: 600;
@@ -7,13 +9,14 @@
 
   &__list {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     gap: 16px;
     margin-top: 20px;
   }
+
   &__controllers {
     position: relative;
+
     &--delete {
       cursor: pointer;
       position: absolute;
@@ -29,6 +32,7 @@
       background: #FFF;
       border-radius: 8px;
     }
+
     &--tipOnSale {
       position: absolute;
       z-index: 1;
@@ -46,6 +50,7 @@
       background: #FEF4E6;
       border-radius: 8px;
     }
+
     &--tipSold {
       position: absolute;
       z-index: 1;
@@ -65,6 +70,7 @@
     }
 
   }
+
   &__item {
     position: relative;
     overflow: hidden;
@@ -87,6 +93,7 @@
       justify-content: center;
       align-items: center;
       gap: 20px;
+
       &__text {
         font-size: 20px;
         font-weight: 400;
